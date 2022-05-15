@@ -1,9 +1,0 @@
-global:
-  version: 1.x
-  css:
-    theme:
-      dist/global.css: {}
-
-  js:
-    dist/global.js: {}
-    dist/react.js: {}
