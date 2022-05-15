@@ -1,0 +1,23 @@
+.wp-5__reacted {
+    padding: 20px;
+    border-top: 1px solid $color-blue;
+
+    .region-content {
+        margin-bottom: 100px;
+        position: relative;
+
+        @include media('<=tablet') {
+            color: grey;
+        }
+
+        &:after {
+            content: "asd";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: url("../assets/images/drup.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+}

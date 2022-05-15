@@ -1,0 +1,12 @@
+name: wp5
+type: theme
+description: "A cuddly theme that offers extra wp5."
+core_version_requirement: ^8 || ^9
+libraries:
+  - wp5/global
+base theme: classy
+regions:
+  header: "Header"
+  content: "Content"
+  sidebar_first: "Sidebar first"
+  footer: "Footer"
