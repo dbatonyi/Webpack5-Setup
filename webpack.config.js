@@ -24,7 +24,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 module.exports = {
-  // mode defaults to 'production' if not set
   mode: mode,
 
   entry: {
@@ -43,26 +42,41 @@ module.exports = {
           {
         test: /\.s[ac]ss$/i,
         use: [
-                MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        url: false,
-                        sourceMap: true
-                    }
-                },
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        sourceMap: true,
-                        implementation: require('sass'),
-                        additionalData: `@import "_variables";@import "_include_media";`,
-                        sassOptions: {
-                        sourceMap: true,
-                        includePaths: [path.resolve(__dirname, './src/scss/')]
-                    }
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
+                options: {
+                    url: false,
+                    sourceMap: true
                 }
-            }
+              },
+              {
+                loader: "postcss-loader",
+                options: {
+                  postcssOptions: {
+                    plugins: [
+                      [
+                        "postcss-preset-env",
+                        {
+                          // Options
+                        },
+                      ],
+                    ],
+                  },
+                },
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                    sourceMap: true,
+                    implementation: require('sass'),
+                    additionalData: `@import "_variables";@import "_include_media";`,
+                    sassOptions: {
+                    sourceMap: true,
+                    includePaths: [path.resolve(__dirname, './src/scss/')]
+                }
+              }
+          }
         ]
       },
       {
