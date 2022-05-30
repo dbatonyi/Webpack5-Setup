@@ -1,7 +1,7 @@
 {
   "name": "wp5",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "watch": "NODE_ENV=development webpack --watch",
     "build": "NODE_ENV=production webpack",
