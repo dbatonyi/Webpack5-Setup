@@ -1,4 +1,5 @@
 const path = require("path");
+const jsonImporter = require('node-sass-json-importer');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -42,7 +43,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -75,6 +76,9 @@ module.exports = {
               additionalData: `@import "_variables";@import "_include_media";`,
               sassOptions: {
                 sourceMap: true,
+                precision: 8,
+                importer: jsonImporter(),
+                outputStyle: 'expanded',
                 includePaths: [path.resolve(__dirname, "./src/scss/")],
               },
             },
@@ -82,7 +86,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|ttf)$/i,
         type: "asset",
       },
       {
@@ -107,9 +111,5 @@ module.exports = {
 
   performance: {
     hints: hints,
-  },
-
-  resolve: {
-    extensions: [".js", ".jsx"],
-  },
+  }
 };

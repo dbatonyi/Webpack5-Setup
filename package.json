@@ -1,7 +1,7 @@
 {
   "name": "wp5",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.5",
   "scripts": {
     "watch": "NODE_ENV=development webpack --watch",
     "build": "NODE_ENV=production webpack",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "node-sass-json-importer": "^4.3.0"
   }
 }
