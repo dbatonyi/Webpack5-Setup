@@ -1,5 +1,4 @@
 const path = require("path");
-const jsonImporter = require('node-sass-json-importer');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
@@ -77,8 +76,7 @@ module.exports = {
               sassOptions: {
                 sourceMap: true,
                 precision: 8,
-                importer: jsonImporter(),
-                outputStyle: 'expanded',
+                outputStyle: "expanded",
                 includePaths: [path.resolve(__dirname, "./src/scss/")],
               },
             },
@@ -111,5 +109,5 @@ module.exports = {
 
   performance: {
     hints: hints,
-  }
+  },
 };
